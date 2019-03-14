@@ -15,6 +15,7 @@ import Login from "./LoginForm";
 class App extends Component {
   componentDidMount() {
     this.props.fetchAllAuthors();
+    this.props.checkForExpiredToken();
   }
 
   render() {
@@ -41,7 +42,8 @@ class App extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchAllAuthors: () => dispatch(actionCreators.fetchAuthors())
+    fetchAllAuthors: () => dispatch(actionCreators.fetchAuthors()),
+    checkForExpiredToken: () => dispatch(actionCreators.checkForExpiredToken())
   };
 };
 
